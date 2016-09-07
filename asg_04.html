@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="acadgild">
+	<head>
+		<title>Assignment 12.4</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script>
+			var myapp = angular.module('acadgild', []);
+
+			myapp.controller('mycontroller1', function($scope) {
+				$scope.hours = 0;
+				$scope.minutes = 0;
+			});
+
+			myapp.filter('min', function() {
+				return function(h) {
+					return h*60;
+				}
+			});
+
+		</script>
+	</head>
+	<body>
+		<div ng-controller="mycontroller1">
+			<input type="text" ng-model="hours" placeholder="Enter hours"/>
+			<p>{{hours | min}} Minutes in {{hours}} hours.</p>
+		</div>
+	</body>
+</html>
